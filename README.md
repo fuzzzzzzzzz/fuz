@@ -12,7 +12,7 @@
 ## 🚀 快速开始
 
 ### 方式一：直接使用（推荐）
-1.  前往 [Releases 页面](https://github.com/你的用户名/你的仓库名/releases) 下载最新版安装包
+1.  前往 [Releases 页面](https://github.com/fuzzzzzzzzz/fuz/tree/main) 下载最新版安装包
 2.  双击安装并启动软件
 3.  软件将自动运行在后台，开始记录你的剪贴板内容
 
