@@ -1,0 +1,44 @@
+{
+  "name": "clipboard-history",
+  "version": "1.0.0",
+  "description": "历史粘贴板 - 记录剪贴板历史，支持文字和图片",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [
+    "clipboard",
+    "history",
+    "paste"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "sql.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.clipboard-history.app",
+    "productName": "历史粘贴板",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "assets/icon.png"
+    },
+    "forceCodeSigning": false,
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "asarUnpack": [
+      "node_modules/sql.js/dist/sql-wasm.wasm"
+    ]
+  }
+}

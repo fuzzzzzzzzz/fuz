@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 14px;
+  color: #424242;
+  background: #FFFFFF;
+  overflow: hidden;
+  user-select: none;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 顶栏 */
+.top-bar {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 8px;
+  border-bottom: 1px solid #EEEEEE;
+  background: #FFFFFF;
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #F5F5F5;
+  border-radius: 20px;
+  padding: 6px 12px;
+  gap: 6px;
+}
+
+.search-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #424242;
+}
+
+.search-box input::placeholder {
+  color: #BDBDBD;
+}
+
+.settings-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-btn:hover {
+  background: #FFF5F5;
+}
+
+/* 卡片列表 */
+.card-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 12px;
+}
+
+.card-list:empty {
+  display: none;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #BDBDBD;
+  gap: 4px;
+}
+
+.empty-state .hint {
+  font-size: 12px;
+}
+
+/* 卡片 */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: background 150ms, box-shadow 150ms;
+  position: relative;
+}
+
+.card:hover {
+  background: #FFF5F5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.card.pinned {
+  border-color: #FFC9C9;
+  background: #FFF5F5;
+}
+
+.card-content {
+  font-size: 14px;
+  color: #424242;
+  line-height: 1.5;
+  word-break: break-all;
+  overflow: hidden;
+  max-height: 60px;
+}
+
+.card-content.image-preview {
+  max-height: 80px;
+}
+
+.card-content img {
+  max-width: 100%;
+  max-height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.card-time {
+  font-size: 12px;
+  color: #757575;
+}
+
+.card-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.card-actions button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-actions button:hover {
+  background: #FFE5E5;
+}
+
+.pin-badge {
+  font-size: 10px;
+  color: #E57373;
+  margin-right: 4px;
+}
+
+/* 设置面板 */
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.settings-overlay.hidden {
+  display: none;
+}
+
+.settings-dialog {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.settings-dialog h3 {
+  font-size: 16px;
+  color: #212121;
+  margin-bottom: 16px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.setting-row label {
+  font-size: 14px;
+  color: #424242;
+}
+
+.setting-row select,
+.setting-row input[type="number"] {
+  padding: 4px 8px;
+  border: 1px solid #EEEEEE;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #424242;
+  outline: none;
+  width: 100px;
+}
+
+.setting-row select:focus,
+.setting-row input[type="number"]:focus {
+  border-color: #E57373;
+}
+
+.setting-row input[type="number"] {
+  width: 80px;
+  text-align: center;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.settings-actions button {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #F5F5F5;
+  color: #757575;
+}
+
+.btn-cancel:hover {
+  background: #EEEEEE;
+}
+
+.btn-save {
+  background: #E57373;
+  color: #FFFFFF;
+}
+
+.btn-save:hover {
+  background: #D32F2F;
+}
+
+/* 开关 */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #EEEEEE;
+  border-radius: 22px;
+  transition: 150ms;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  bottom: 2px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  transition: 150ms;
+}
+
+.toggle input:checked + .toggle-slider {
+  background: #E57373;
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(18px);
+}
+
+/* 滚动条 */
+.card-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.card-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card-list::-webkit-scrollbar-thumb {
+  background: #EEEEEE;
+  border-radius: 2px;
+}
+
+.card-list::-webkit-scrollbar-thumb:hover {
+  background: #BDBDBD;
+}

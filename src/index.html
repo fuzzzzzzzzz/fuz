@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>历史粘贴板</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="top-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="搜索历史记录..." />
+      </div>
+      <button class="settings-btn" id="settingsBtn" title="设置">⚙</button>
+    </header>
+    <main class="card-list" id="cardList">
+      <div class="empty-state">
+        <p>还没有复制记录</p>
+        <p class="hint">试试复制一些文字或图片吧</p>
+      </div>
+    </main>
+  </div>
+
+  <div class="settings-overlay hidden" id="settingsPanel">
+    <div class="settings-dialog">
+      <h3>设置</h3>
+      <div class="setting-row">
+        <label>保留天数</label>
+        <select id="retentionDays">
+          <option value="1">1 天</option>
+          <option value="3">3 天</option>
+          <option value="5">5 天</option>
+        </select>
+      </div>
+      <div class="setting-row">
+        <label>数量上限</label>
+        <input type="number" id="maxItems" min="50" max="1000" step="50" value="200" />
+      </div>
+      <div class="setting-row">
+        <label>开机自启</label>
+        <label class="toggle">
+          <input type="checkbox" id="autoStart" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="settings-actions">
+        <button class="btn-cancel" id="settingsCancel">取消</button>
+        <button class="btn-save" id="settingsSave">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
